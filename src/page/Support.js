@@ -7,6 +7,7 @@ import HashInput from '../components/Support/HashInput';
 import ClientUrlButton from '../components/Support/ClientUrlButton';
 import VideoPlayer from '../components/Support/VideoPlayer';
 import UnassignedContract from '../page/UnassignedContract';
+import { Toaster, toast } from 'react-hot-toast';
 
 // Conexão com o servidor
 
@@ -86,6 +87,47 @@ function Support() {
 
   }, []);
 
+  
+  const notify = (msg) => {
+    toast.success(msg, {
+        duration: 3000,
+        style: {
+            borderRadius: '8px',
+            padding: '16px',
+            color: '#ffffff',
+            backgroundColor: '#4caf50',
+            top: '20px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+        },
+        iconTheme: {
+            primary: '#ffffff',
+            secondary: '#ffffff',
+        },
+    });
+};
+
+const notifyError = (msg) => {
+    toast.error(msg, {
+        duration: 3000,
+        style: {
+            borderRadius: '8px',
+            padding: '16px',
+            color: '#ffffff',
+            backgroundColor: 'red',
+            top: '20px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+        },
+        iconTheme: {
+            primary: '#ffffff',
+            secondary: '#ffffff',
+        },
+    });
+};
+
+
+
   const startSharing = async () => {
     if (!hash) {
       alert('Por favor, insira um hash válido.');
@@ -157,11 +199,14 @@ function Support() {
       });
 
       if (response.ok) {
+        notify('Mensagem enviada com sucesso para o cliente')
         console.log('URL enviada com sucesso!');
       } else {
+        notifyError('Erro ao enviar a mensagem')
         console.error('Erro ao enviar a URL:', response.statusText);
       }
     } catch (error) {
+      notifyError('Ops! Algo de errado aconteceu. Por favor, contate o administrador')
       console.error('Erro de rede ou outro:', error);
     }
 
@@ -228,6 +273,7 @@ function Support() {
               </Paper>
             </Grid>
           </Grid>
+          <Toaster position="top-center" reverseOrder={false} />
         </Container>
       ) : (
         <UnassignedContract />
