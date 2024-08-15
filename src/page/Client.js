@@ -228,7 +228,7 @@ function Client() {
                     <Avatar alt="logo" src={logo} style={{ width: '100px', height: '100px' }} />
                 </Box>
                 <Typography variant="h4" align="center" gutterBottom>
-                    Compartilhamento de Tela
+                    ViewDesk
                 </Typography>
                 {!sharingStarted ? (
                     <SharingControls
