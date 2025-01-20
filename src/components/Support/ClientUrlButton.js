@@ -14,7 +14,7 @@ const ClientUrlButton = ({ clientUrl, sendMessageBlip }) => (
           color: 'white',
         }}
       >
-        Enviar ao cliente
+        Enviar mesagem ao cliente
       </Button>
     </Box>
   )
