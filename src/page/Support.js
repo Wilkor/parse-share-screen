@@ -44,7 +44,7 @@ function Support() {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const url = new URL('http://localhost:3000/client');
+    const url = new URL('https://parse-viewdesk-201fbd4fbda4.herokuapp.com/client');
     params.forEach((value, key) => url.searchParams.append(key, value));
     setClientUrl(url.toString());
 
