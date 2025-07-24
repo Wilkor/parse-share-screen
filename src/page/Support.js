@@ -44,7 +44,11 @@ function Support() {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
+<<<<<<< HEAD
     const url = new URL('https://parse-viewdesk-201fbd4fbda4.herokuapp.com/client');
+=======
+    const url = new URL('https://pontoparse.herokuapp.com/client');
+>>>>>>> 0cd06e9457c8e0f0e74c98ceec0f65d3dfec2fab
     params.forEach((value, key) => url.searchParams.append(key, value));
     setClientUrl(url.toString());
 
