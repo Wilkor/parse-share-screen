@@ -43,7 +43,7 @@ function Client() {
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
-        const url = new URL(`http://localhost:3000/client?${params}`);
+        const url = new URL(`https://pontoparse.herokuapp.com/client?${params}`);
         setClientUrl(url.toString());
     }, []);
 
